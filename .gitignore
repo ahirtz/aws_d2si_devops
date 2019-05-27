@@ -1,0 +1,42 @@
+antoinehirtz at GroveStr.local in [~/Documents/mmh/d2si/devops/sprint_1]
+16:21:59 › git init
+# IDE
+.vscode
+.idea
+.classpath
+.project
+
+# Notebook
+.ipynb_checkpoints
+**.iml
+
+# Python
+__pycache__/
+*.pyc
+venv
+.env
+
+# Lambdas
+**/lambdas/**/python/
+
+# Terraform
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+
+# Tools
+.bin/
+
+# Archives
+*.zip
+
+# Libs
+/glue/swamp-to-tank/libs/
+!/glue/swamp-to-tank/libs/README.md
+**/target/
+
+# Java
+target/
+
+#VSC
+.vscode/
