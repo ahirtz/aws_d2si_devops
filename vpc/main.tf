@@ -12,11 +12,9 @@ resource "aws_vpc" "main" {
 }
 
 resource "aws_subnet" "subnets" {
+  count      = "${length(var.subnet_cidrs_private)}"
   vpc_id     = "${aws_vpc.main.id}"
-  cidr_block = "172.23.${count.index+1}.0/24"
-
-  # Creation of 2 private subnets
-  count = 2
+  cidr_block = "${var.subnet_cidrs_private[count.index]}"
 
   tags = {
     Name = "aws_subnet_${count.index}"
@@ -45,7 +43,7 @@ resource "aws_route_table" "r" {
 }
 
 resource "aws_route_table_association" "a" {
-  count          = 2
+  count          = "${length(var.subnet_cidrs_private)}"
   subnet_id      = "${element(aws_subnet.subnets.*.id, count.index)}"
   route_table_id = "${aws_route_table.r.id}"
 }
