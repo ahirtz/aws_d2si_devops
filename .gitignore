@@ -22,6 +22,8 @@ venv
 terraform.tfstate
 terraform.tfstate.backup
 .terraform.tfstate.lock.info
+init_tf/
+backend.tf
 
 # Tools
 .bin/
