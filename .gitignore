@@ -1,5 +1,3 @@
-antoinehirtz at GroveStr.local in [~/Documents/mmh/d2si/devops/sprint_1]
-16:21:59 › git init
 # IDE
 .vscode
 .idea
@@ -23,6 +21,7 @@ venv
 .terraform/
 terraform.tfstate
 terraform.tfstate.backup
+.terraform.tfstate.lock.info
 
 # Tools
 .bin/
