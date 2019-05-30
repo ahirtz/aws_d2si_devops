@@ -1,8 +1,3 @@
-provider "aws" {
-  region  = "${var.aws_region}"
-  version = "~> 2.0"
-}
-
 resource "aws_vpc" "main" {
   cidr_block = "${var.vpc_cidr}"
 
@@ -12,9 +7,10 @@ resource "aws_vpc" "main" {
 }
 
 resource "aws_subnet" "subnets" {
-  count      = "${length(var.subnet_cidrs_private)}"
-  vpc_id     = "${aws_vpc.main.id}"
-  cidr_block = "${var.subnet_cidrs_private[count.index]}"
+  count             = "${length(var.subnet_cidrs_private)}"
+  vpc_id            = "${aws_vpc.main.id}"
+  cidr_block        = "${var.subnet_cidrs_private[count.index]}"
+  availability_zone = "${var.list_az[count.index]}"
 
   tags = {
     Name = "aws_subnet_${count.index}"

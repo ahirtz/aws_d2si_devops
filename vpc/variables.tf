@@ -16,3 +16,8 @@ variable "subnet_cidrs_private" {
   # this could be further simplified / computed using cidrsubnet() etc.
   # https://www.terraform.io/docs/configuration/interpolation.html#cidrsubnet-iprange-newbits-netnum-
 }
+
+variable "list_az" {
+  type    = "list"
+  default = ["eu-west-1a", "eu-west-1b"]
+}
